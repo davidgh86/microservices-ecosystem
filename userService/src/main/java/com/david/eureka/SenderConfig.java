@@ -37,8 +37,5 @@ public class SenderConfig {
         return new KafkaTemplate<>(producerFactory());
     }
 
-    @Bean
-    public Sender sender() {
-        return new Sender();
-    }
+
 }
