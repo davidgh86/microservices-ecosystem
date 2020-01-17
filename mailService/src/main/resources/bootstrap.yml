@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   application:
-    name: ms-user
+    name: ms-mail
   cloud:
     config:
       discovery:
