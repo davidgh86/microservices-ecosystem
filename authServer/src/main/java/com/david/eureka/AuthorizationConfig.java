@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -28,13 +30,13 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
     @Qualifier("dataSource")
     private DataSource dataSource;
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    //@Autowired
+    //private AuthenticationManager authenticationManager;
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
-                .authenticationManager(this.authenticationManager)
+                .authenticationManager(authentication -> authentication)
                 .tokenServices(tokenServices())
                 .tokenStore(tokenStore())
                 .accessTokenConverter(accessTokenConverter());
