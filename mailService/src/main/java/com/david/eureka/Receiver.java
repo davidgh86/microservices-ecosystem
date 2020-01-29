@@ -1,6 +1,5 @@
 package com.david.eureka;
 
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 
@@ -14,7 +13,7 @@ public class Receiver {
     private CountDownLatch latch = new CountDownLatch(1);
 
     @KafkaListener(topics = "${spring.kafka.topic.userCreated}")
-    public void receive(UserDto payload) {
+    public void receive(User payload) {
         emailService.sendSimpleMessage(payload);
         latch.countDown();
     }

@@ -3,7 +3,7 @@ package com.david.eureka;
 import lombok.Data;
 
 @Data
-public class UserDto {
+public class User {
 
     private Long id;
 

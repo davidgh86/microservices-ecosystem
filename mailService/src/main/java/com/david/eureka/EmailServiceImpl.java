@@ -16,7 +16,7 @@ public class EmailServiceImpl implements EmailService {
     public MailRepository mailRepository;
 
     @Override
-    public void sendSimpleMessage(UserDto input) {
+    public void sendSimpleMessage(User input) {
         try {
 
             Mail newMail = new Mail();
@@ -30,7 +30,7 @@ public class EmailServiceImpl implements EmailService {
             message.setText(newMail.getText());
 
             mailRepository.save(newMail);
-            emailSender.send(message);
+            //emailSender.send(message);
         } catch (MailException exception) {
             exception.printStackTrace();
         }
