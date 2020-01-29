@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService{
 
     @Value("${spring.kafka.topic.userCreated}")
-    private static String USER_CREATED_TOPIC;
+    private String USER_CREATED_TOPIC;
 
     @Autowired
     private UserRepository userRepository;
